@@ -5,7 +5,7 @@ package simple
 
 import "github.com/google/wire"
 
-func InitializedService() (*SimpleService, error) { // return valuenya dipilih sesuai sama provider yang mau dipake
+func InitializedService(isError bool) (*SimpleService, error) { // return valuenya dipilih sesuai sama provider yang mau dipake, dan ini dikasih injector parameter isError
 	wire.Build(NewSimpleRepository, NewSimpleService)
 	return nil, nil
 }

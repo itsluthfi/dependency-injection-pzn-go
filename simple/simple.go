@@ -6,8 +6,10 @@ type SimpleRepository struct {
 	Error bool
 }
 
-func NewSimpleRepository() *SimpleRepository { // ini namanya provider atau function constructor
-	return &SimpleRepository{}
+func NewSimpleRepository(isError bool) *SimpleRepository { // ini namanya provider atau function constructor
+	return &SimpleRepository{
+		Error: isError,
+	}
 }
 
 type SimpleService struct {
