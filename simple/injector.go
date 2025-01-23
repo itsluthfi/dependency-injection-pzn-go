@@ -23,4 +23,20 @@ func InitializedFooBar() *FooBarService {
 	return nil
 }
 
+// salah
+//func InitializedHelloService() *HelloService {
+//	wire.Build(NewHelloService, NewSayHelloImpl)
+//	return nil
+//}
+
+var helloSet = wire.NewSet(
+	NewSayHelloImpl,
+	wire.Bind(new(SayHello), new(*SayHelloImpl)),
+)
+
+func InitializedHelloService() *HelloService {
+	wire.Build(helloSet, NewHelloService)
+	return nil
+}
+
 // habis itu eksekusi pake cmd wire di folder package yg ada injectornya, file generatenya punya nama wire_gen.go
