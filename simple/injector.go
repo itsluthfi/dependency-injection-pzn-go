@@ -10,4 +10,9 @@ func InitializedService(isError bool) (*SimpleService, error) { // return valuen
 	return nil, nil
 }
 
+func InitializedDatabase() *DatabaseRepository {
+	wire.Build(NewDatabasePostgreSQL, NewDatabaseMongoDB, NewDatabaseRepository)
+	return nil
+}
+
 // habis itu eksekusi pake cmd wire di folder package yg ada injectornya, file generatenya punya nama wire_gen.go
