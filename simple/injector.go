@@ -62,4 +62,12 @@ func InitializedReader() io.Reader {
 	return nil
 }
 
+func InitializedConfiguration() *Configuration {
+	wire.Build(
+		NewApplication,
+		wire.FieldsOf(new(*Application), "Configuration"),
+	)
+	return nil
+}
+
 // habis itu eksekusi pake cmd wire di folder package yg ada injectornya, file generatenya punya nama wire_gen.go
