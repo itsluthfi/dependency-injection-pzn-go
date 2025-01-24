@@ -70,4 +70,9 @@ func InitializedConfiguration() *Configuration {
 	return nil
 }
 
+func InitializedConnection(name string) (*Connection, func()) {
+	wire.Build(NewConnection, NewFile)
+	return nil, nil
+}
+
 // habis itu eksekusi pake cmd wire di folder package yg ada injectornya, file generatenya punya nama wire_gen.go
