@@ -44,4 +44,12 @@ func InitializedFooBarStruct() *FooBar {
 	return nil
 }
 
+var fooValue = &Foo{}
+var barValue = &Bar{}
+
+func InitializedFooBarUsingValue() *FooBar {
+	wire.Build(wire.Value(fooValue), wire.Value(barValue), wire.Struct(new(FooBar), "*"))
+	return nil
+}
+
 // habis itu eksekusi pake cmd wire di folder package yg ada injectornya, file generatenya punya nama wire_gen.go
