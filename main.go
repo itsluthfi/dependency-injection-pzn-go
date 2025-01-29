@@ -5,8 +5,13 @@ import (
 	"rest-api-pzn-go/helper"
 	"rest-api-pzn-go/middleware"
 
+	"github.com/go-playground/validator/v10"
 	_ "github.com/go-sql-driver/mysql"
 )
+
+func NewValidator() *validator.Validate {
+	return validator.New()
+}
 
 func NewServer(authMiddleware *middleware.AuthMiddleware) *http.Server {
 	return &http.Server{

@@ -11,7 +11,6 @@ import (
 	"rest-api-pzn-go/repository"
 	"rest-api-pzn-go/service"
 
-	"github.com/go-playground/validator/v10"
 	"github.com/google/wire"
 	"github.com/julienschmidt/httprouter"
 )
@@ -28,7 +27,7 @@ var categorySet = wire.NewSet(
 func InitializedServer() *http.Server {
 	wire.Build(
 		app.NewDB,
-		validator.New,
+		NewValidator,
 		categorySet,
 		app.NewRouter,
 		wire.Bind(new(http.Handler), new(*httprouter.Router)),
